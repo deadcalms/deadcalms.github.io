@@ -6,17 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>deadcalm 个人博客</title>
+  <title>动态爬虫之QQ好友列表 | deadcalm 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="反省不是去后悔，是为前进铺路。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="deadcalm 个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="步骤1、分析qzone请求2、分析参数来源3、仿照数据请求 上次写的一个qzone登陆写的不详细这次决定写一个详细分析qzone js 获取好友列表 分析qzone请求我们的好友列表要从 qzone 获取，现在打开 qzone 的链接 https://h5.qzone.qq.com/mqzone/index 并且登陆  你可能会说你在逗我，这特么哪里来的好友列表别急，好友列表肯定是有的不然你发表说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态爬虫之QQ好友列表">
+<meta property="og:url" content="http://yoursite.com/2017/07/18/python_selenium_phantomjs_02/index.html">
 <meta property="og:site_name" content="deadcalm 个人博客">
-<meta property="og:description" content="反省不是去后悔，是为前进铺路。">
+<meta property="og:description" content="步骤1、分析qzone请求2、分析参数来源3、仿照数据请求 上次写的一个qzone登陆写的不详细这次决定写一个详细分析qzone js 获取好友列表 分析qzone请求我们的好友列表要从 qzone 获取，现在打开 qzone 的链接 https://h5.qzone.qq.com/mqzone/index 并且登陆  你可能会说你在逗我，这特么哪里来的好友列表别急，好友列表肯定是有的不然你发表说">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_login_success.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_network_requests.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_send_message.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_network_requests02.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_friend_list_details.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_search_qzonetoken_result.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_search_window.shine0callback_result.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_search_html_result.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_search_g_tk_result.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_exec_console_out.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_search_userHelper_result.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_exec_console_userHelper.png">
+<meta property="og:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_xmlHttprequest_result.png">
+<meta property="og:updated_time" content="2017-07-18T07:52:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="deadcalm 个人博客">
-<meta name="twitter:description" content="反省不是去后悔，是为前进铺路。">
+<meta name="twitter:title" content="动态爬虫之QQ好友列表">
+<meta name="twitter:description" content="步骤1、分析qzone请求2、分析参数来源3、仿照数据请求 上次写的一个qzone登陆写的不详细这次决定写一个详细分析qzone js 获取好友列表 分析qzone请求我们的好友列表要从 qzone 获取，现在打开 qzone 的链接 https://h5.qzone.qq.com/mqzone/index 并且登陆  你可能会说你在逗我，这特么哪里来的好友列表别急，好友列表肯定是有的不然你发表说">
+<meta name="twitter:image" content="http://yoursite.com/img/qzone/2017/07/18/qzone_login_success.png">
   
     <link rel="alternative" href="/atom.xml" title="deadcalm 个人博客" type="application/atom+xml">
   
@@ -144,16 +159,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-python_selenium_phantomjs_02" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-python_selenium_phantomjs_02" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/18/python_selenium_phantomjs_02/">动态爬虫之QQ好友列表</a>
+    <h1 class="article-title" itemprop="name">
+      动态爬虫之QQ好友列表
     </h1>
   
 
@@ -171,179 +184,51 @@
 <h3 id="分析qzone请求"><a href="#分析qzone请求" class="headerlink" title="分析qzone请求"></a>分析qzone请求</h3><p>我们的好友列表要从 qzone 获取，现在打开 qzone 的链接 <a href="https://h5.qzone.qq.com/mqzone/index" target="_blank" rel="external">https://h5.qzone.qq.com/mqzone/index</a> 并且登陆</p>
 <p><img src="\img\qzone\2017\07\18\qzone_login_success.png" style="height:500px"></p>
 <p>你可能会说你在逗我，这特么哪里来的好友列表<br>别急，好友列表肯定是有的不然你发表说说怎么<span style="color:blue;font-size: 25px;">@</span>你的好友呢</p>
-        
-          <a class="article-more-a" href="/2017/07/18/python_selenium_phantomjs_02/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/18/python_selenium_phantomjs_02/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-python_selenium_phantomjs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/15/python_selenium_phantomjs/">动态爬虫之QQ空间登录</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/15/python_selenium_phantomjs/" class="archive-article-date">
-  	<time datetime="2017-07-15T01:21:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：</h3><p>1、intellij idea<br>2、python<br>3、selenium<br>4、phantomJs</p>
-<h5 id="1、分析Qzone-Html页面"><a href="#1、分析Qzone-Html页面" class="headerlink" title="1、分析Qzone Html页面"></a>1、分析Qzone Html页面</h5><p>打开手机版qzone <a href="https://mobile.qzone.qq.com" target="_blank" rel="external">https://mobile.qzone.qq.com</a></p>
-<p><img src="/img/qzone/2017/07/15/qzone_openhtml.jpg" style="width: 100%;"></p>
-<p><span style="color:red;">按照上面流程复制账号、密码和登录按钮的的XPath粘贴到记事本中</span><br>
-        
-          <a class="article-more-a" href="/2017/07/15/python_selenium_phantomjs/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/15/python_selenium_phantomjs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-ue4-2017-05" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/05/ue4-2017-05/">虚幻4引擎搭建Android环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/05/ue4-2017-05/" class="archive-article-date">
-  	<time datetime="2017-07-05T09:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1、注册账户<br>2、下载虚空客户端<br>3、下载虚空引擎<br>4、安装 Visual Studio 2017<br>5、新建project<br>6、配置Android环境<br>7、运行测试</p>
-<h4 id="1、注册unrealengine账号"><a href="#1、注册unrealengine账号" class="headerlink" title="1、注册unrealengine账号"></a>1、注册unrealengine账号</h4><p>废话不多说上中文官方网站 <a href="https://www.unrealengine.com/zh-CN/blog" target="_blank" rel="external">https://www.unrealengine.com/zh-CN/blog</a> 点击右上角的人头ico进入登录页面<br><img src="/img/ue4_2017070518_03.png" style="width: 60%;"><br>
-        
-          <a class="article-more-a" href="/2017/07/05/ue4-2017-05/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/05/ue4-2017-05/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/11/hello-world/" class="archive-article-date">
-  	<time datetime="2017-05-11T03:40:02.960Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<a id="more"></a>
+<p>说到<span style="color:blue;font-size: 25px;">@</span>好友都明白了吧，我们的好友列表接口就从这里开始拦截接口请求。<br>先把打开我们发说说的那个框框,再把浏览器开启调试模式,清空网络请求拦截列表</p>
+<p><img src="\img\qzone\2017\07\18\qzone_network_requests.png" style="height:500px"></p>
+<p>现在你应该在发说说的那个界面，点一下说说框下面的 <span style="color:blue;font-size: 25px;">@</span>符号</p>
+<p><img src="\img\qzone\2017\07\18\qzone_send_message.png"></p>
+<p>盯住网络请求那一块，找一下那个像是获取好友列表的，发现一共就6个请求，我一眼就看到了<span style="color:red;">mfriend_list</span> 接口意思很直白啊</p>
+<p><img src="\img\qzone\2017\07\18\qzone_network_requests02.png"></p>
+<p>好友列表已经找到，接下来就是分析参数了，这个过程很痛苦</p>
+<h3 id="分析参数来源"><a href="#分析参数来源" class="headerlink" title="分析参数来源"></a>分析参数来源</h3><p>首先点我刚刚说到的那一条请求记录 就是这样子的 我对自己的qq号打了码毕竟这个东西获取到可以直接用cookie登陆的</p>
+<p><img src="\img\qzone\2017\07\18\qzone_friend_list_details.png" style="width:70%"></p>
+<p>这里可能有人会说，为什么不直接点击拦截列表上面有个可以定位js发出请求的位置，这样找分析请求参数不是更简单吗<br>这边呢我只能说我之前也找过，但是找不到，因为点击过去找到的是封装类的位置</p>
+<p>这边参数呢不多 六个 需要分析的就两个<br><span style="color:red;">qzonetoken</span>:<span style="word-wrap:break-word">c2176b5d6f0deff03d0dd0f59f26e51c2b408aa83419d416c737cc1b21d1e913c861ca780ad34ff4293ca5640b69</span><br><span style="color:red;">g_tk:</span>1760587213<br><span style="color:red;">res_uin:</span><em>*</em><br><span style="color:red;">res_type:</span>normal<br><span style="color:red;">format:</span>json<br><span style="color:red;">timestamp</span> 时间戳</p>
+<p>我们现在看一下这个 <span style="color:red;"> qzonetoken</span> 使用全局搜索找一下看是不是写在静态页面中的</p>
+<p><img src="\img\qzone\2017\07\18\qzone_search_qzonetoken_result.png"></p>
+<p>继续搜索 <span style="color:red;">window.shine0callback</span></p>
+<p><img src="\img\qzone\2017\07\18\qzone_search_window.shine0callback_result.png"></p>
+<p>发现都是一个结果。。。。 后面我试着搜索一下html 里面 发现竟然真的有</p>
+<p><img src="\img\qzone\2017\07\18\qzone_search_html_result.png"></p>
+<p><span style="color:red;">window.shine0callback</span> = 自执行函数<br>所以呢 <span style="color:red;">qzonetoken</span> 参数直接用<span style="color:red;">window.shine0callback</span> 就好了</p>
+<p>继续全局搜索 <span style="color:red;">g_tk</span></p>
+<p><img src="\img\qzone\2017\07\18\qzone_search_g_tk_result.png"></p>
+<p>这边呢有三个方法获取token<br>1、<span style="color:red;">userHelper.getPskeyToken()</span><br>2、<span style="color:red;">userHelper.getToken()</span><br>3、<span style="color:red;">user.getToken()</span></p>
+<p>我们先在控制台执行一下这些方法</p>
+<p><img src="\img\qzone\2017\07\18\qzone_exec_console_out.png"></p>
+<p>发现<span style="color:red;">user</span>能执行也和请求的参数对上了，不过我还是想找一下 <span style="color:red;">userHelper</span> 这个东西</p>
+<p>先把ajax.js 这个类给弄到本地来 搜索 <span style="color:red;">userHelper</span></p>
+<p><img src="\img\qzone\2017\07\18\qzone_search_userHelper_result.png"></p>
+<p>既然写在里面的那copy到控制台就可以执行了<br>开始我把<span style="color:red;">userHelper</span> copy进去发现少了一个getCookie,再把getCookie 也复制到控制台就好了</p>
+<p><img src="\img\qzone\2017\07\18\qzone_exec_console_userHelper.png"></p>
+<p>这样子执行就能获取到<span style="color:red;">token</span> 了</p>
+<p><span style="color:red;">res_uin</span> qq号码，我在搜索静态html的时候无意间发现了可以从<span style="color:red;">FrontPage</span>对象中获取，当然也可以从<span style="color:red;">user</span>对象中获取<br><span style="color:red;">res_type</span> 固定normal<br><span style="color:red;">format</span> 固定json<br><span style="color:red;">timestamp</span> 时间戳拿一下系统时间戳就好</p>
+<p>现在参数都分析完毕，qzone 的接口分析还是蛮简单的，不像某宝网站的程序</p>
+<h3 id="仿照数据请求"><a href="#仿照数据请求" class="headerlink" title="仿照数据请求"></a>仿照数据请求</h3><p>请到我上一篇文章拿 qzone登陆 的源码 <a href="/2017/07/15/python_selenium_phantomjs/#6" target="_blank">传送到源码</a></p>
+<p>找到 paresHtml 函数 在这里先切换到默认窗口<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">paresHtml</span><span class="params">(self)</span>:</span></div><div class="line">    self.driver.switch_to.default_content()</div></pre></td></tr></table></figure></p>
+<p>获取 qzonetoken 这边直接执行window.shine0callback 就能获取<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">qzonetoken = self.driver.execute_script(<span class="string">'return window.shine0callback'</span>)</div></pre></td></tr></table></figure></p>
+<p>获取 g_tk 上面说到user里面可以直接获取，那我们就偷个懒使用 user.getToken()<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">g_tk = self.driver.execute_script(<span class="string">'return user.getToken()'</span>)</div></pre></td></tr></table></figure></p>
+<p>获取 res_uin 直接从user 里面 getUin()<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">res_uin = self.driver.execute_script(<span class="string">'return user.getUin()'</span>)</div></pre></td></tr></table></figure></p>
+<p>获取时间戳 由于python 中的time.time()是秒，需要乘个1000<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line">timestamp = time.time() * <span class="number">1000</span></div></pre></td></tr></table></figure></p>
+<p>拼接url<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">list = <span class="string">'https://mobile.qzone.qq.com/friend/mfriend_list?'</span> \</div><div class="line">               <span class="string">'qzonetoken=%s&amp;g_tk=%s&amp;res_uin=%s&amp;res_type=normal&amp;format=json&amp;timestamp=%d'</span> % (</div><div class="line">                   qzonetoken, g_tk, res_uin, timestamp)</div></pre></td></tr></table></figure></p>
+<p>本身我想偷懒的直接用 self.driver.get() 直接执行的 后来想想还是算了，没有一点技术含量的东西怎么好意思写呢<br>最后决定使用js中的XMLHttpRequest 来模仿请求<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">self.driver.execute_script(<span class="string">'window.xhr = new XMLHttpRequest;'</span>)</div><div class="line">self.driver.execute_script(<span class="string">'window.xhr.withCredentials=true;'</span>)</div><div class="line">self.driver.execute_script(</div><div class="line">    <span class="string">'window.xhr.open(\'GET\',\'%s\',false)'</span> % list)</div><div class="line">self.driver.execute_script(<span class="string">'window.xhr.onload = function (e)&#123;window.xhrsuccess = window.xhr.responseText&#125;'</span>)</div><div class="line">self.driver.execute_script(<span class="string">'window.xhr.send()'</span>)</div><div class="line">print(self.driver.execute_script(<span class="string">'return window.xhrsuccess'</span>))</div></pre></td></tr></table></figure></p>
+<p>请求完成后的结果是这个样子的</p>
+<p><img src="\img\qzone\2017\07\18\qzone_xmlHttprequest_result.png"></p>
+<p>下面是请求返回的结果<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    "code":0,</div><div class="line">    "subcode":0,</div><div class="line">    "message":"",</div><div class="line">    "default":0,</div><div class="line">    "data":&#123;</div><div class="line">        "gpnames":[//分组列表</div><div class="line">            &#123;</div><div class="line">                "gpid":0,//分组id</div><div class="line">                "gpname":"agp"//分组名称</div><div class="line">            &#125;</div><div class="line">        ],</div><div class="line">        "list":[//好友列表</div><div class="line">            &#123;</div><div class="line">              "groupid":0,//分组id</div><div class="line">              "isvip":1,//是否是vip 1 是 vip</div><div class="line">              "nick":"消费主张", //昵称</div><div class="line">              "remark":"消费主张",//备注</div><div class="line">              "searchField":"12315 消费主张 消费主张 xiaofeizhuzhang xfzz xiaofeizhuzhang xfzz",//关键字</div><div class="line">              "uin":12315,//qq号码</div><div class="line">              "viplevel":1 //qq等级</div><div class="line">            &#125;</div><div class="line">        ],</div><div class="line">        "mayknow":&#123;</div><div class="line">             "allnum":0,</div><div class="line">              "list":null,</div><div class="line">              "page":1</div><div class="line">        &#125;,</div><div class="line">        "speciallist":null</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最后发一下模仿请求的源码 结合我上一篇文章的源码可以直接执行出结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">paresHtml</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="comment"># 切换到默认窗口</span></div><div class="line">    self.driver.switch_to.default_content()</div><div class="line">    <span class="comment"># 请求状态</span></div><div class="line">    shine0callback = self.driver.execute_script(<span class="string">'return window.shine0callback'</span>)</div><div class="line">    <span class="comment"># 一定要暂停一下不然 执行user的时候拿不到，因为懒加载</span></div><div class="line">    time.sleep(<span class="number">1</span>)</div><div class="line"></div><div class="line">    g_tk = self.driver.execute_script(<span class="string">'return window.user.getToken()'</span>)</div><div class="line">    uin = self.driver.execute_script(<span class="string">'return window.user.getUin()'</span>)</div><div class="line">    timestamp = time.time() * <span class="number">1000</span></div><div class="line"></div><div class="line">    list = <span class="string">'https://mobile.qzone.qq.com/friend/mfriend_list?'</span> \</div><div class="line">            <span class="string">'qzonetoken=%s&amp;g_tk=%s&amp;res_uin=%s&amp;res_type=normal&amp;format=json&amp;timestamp=%d'</span> % (</div><div class="line">                shine0callback, g_tk, uin, timestamp)</div><div class="line"></div><div class="line">    <span class="comment"># self.load_cookies()</span></div><div class="line">    <span class="comment"># self.driver.get(list)</span></div><div class="line"></div><div class="line">    self.driver.execute_script(<span class="string">'window.xhr = new XMLHttpRequest;'</span>)</div><div class="line"></div><div class="line">    self.driver.execute_script(</div><div class="line">            <span class="string">'window.xhr.open(\'GET\',\'%s\',false)'</span> % list)</div><div class="line">    self.driver.execute_script(<span class="string">'window.xhr.onload = function (e)&#123;window.xhrsuccess = window.xhr.responseText&#125;'</span>)</div><div class="line">    self.driver.execute_script(<span class="string">'window.xhr.send()'</span>)</div><div class="line">    print(self.driver.execute_script(<span class="string">'return window.xhrsuccess'</span>))</div></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>1、qzone 里面的接口参数都差不多，总归来讲都能搜索出来<br>2、qzone 压缩了js提高了分析的难度<br>3、好友列表模拟请求时记得把cookie带过去否则t不认<br>4、有时候登陆会登不上，拿到的好友列表数据是请先登录，删掉cookie重试即便就好</p>
 
       
 
@@ -355,23 +240,98 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/11/hello-world/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/18/python_selenium_phantomjs_02/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/15/python_selenium_phantomjs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态爬虫之QQ空间登录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
 
   
+
   
+
+  
+
+  
+
+  <!-- 有言 -->
+  
+    <!-- UY BEGIN -->
+<div class="cloud-tie-wrapper" >
+  <div id="uyan_frame"></div>
+</div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2138139"></script>
+<!-- UY END -->
+
+  
+
 
 
           </div>
@@ -393,8 +353,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
