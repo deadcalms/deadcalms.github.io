@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/19/shadowocks-create/index.html">
 <meta property="og:site_name" content="deadcalm的博客">
 <meta property="og:description" content="1、前言1、本文章只是教大家怎么搭建一个 SS 服务器2、此文章我只是站在技术角度去看3、搭建 SS服务器 的前提是向有关部门申报之后再搭建4、此文章使用的是 CentOS 7 x64 vultr 的服务器，这边链接是我的推荐注册链接。 2、安装环境1、安装 vim2、安装 python3、安装 pip4、安装 shadowsocks5、安装 Google BBR 加速 VPS 网络 (1)安装">
-<meta property="og:updated_time" content="2017-10-30T02:17:28.000Z">
+<meta property="og:updated_time" content="2017-10-30T02:21:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this as ShadowSocks install">
 <meta name="twitter:description" content="1、前言1、本文章只是教大家怎么搭建一个 SS 服务器2、此文章我只是站在技术角度去看3、搭建 SS服务器 的前提是向有关部门申报之后再搭建4、此文章使用的是 CentOS 7 x64 vultr 的服务器，这边链接是我的推荐注册链接。 2、安装环境1、安装 vim2、安装 python3、安装 pip4、安装 shadowsocks5、安装 Google BBR 加速 VPS 网络 (1)安装">
@@ -183,6 +183,7 @@
 <h1 id="2、安装环境"><a href="#2、安装环境" class="headerlink" title="2、安装环境"></a>2、安装环境</h1><p>1、安装 vim<br>2、安装 python<br>3、安装 pip<br>4、安装 shadowsocks<br>5、安装 Google BBR 加速 VPS 网络</p>
 <h4 id="1-安装-vim"><a href="#1-安装-vim" class="headerlink" title="(1)安装 vim"></a>(1)安装 vim</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install vim</div></pre></td></tr></table></figure>
 <h4 id="2-安装-python"><a href="#2-安装-python" class="headerlink" title="(2) 安装 python"></a>(2) 安装 python</h4><p>这边我们安装 3.4版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install python34</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h4 id="3-安装-pip"><a href="#3-安装-pip" class="headerlink" title="(3) 安装 pip"></a>(3) 安装 pip</h4><p>这边安装python不会自己安装 pip3 我们需要手动安装一下<br>这边执行可能会报错 执行两遍就好了<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl https://bootstrap.pypa.io/get-pip.py | python3</div></pre></td></tr></table></figure></p>
 <h4 id="（4）安装-shadowsocks"><a href="#（4）安装-shadowsocks" class="headerlink" title="（4）安装 shadowsocks"></a>（4）安装 shadowsocks</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip3 install shadowsocks</div></pre></td></tr></table></figure>
 <p>安装这边其他的都没啥毛病，就是第三步的时候安装pip 会有点问题</p>
