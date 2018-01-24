@@ -63,13 +63,9 @@ uninstallSS(){
     fi
 }
 
-#登入管理员账户
-sudo su
 read -p '安装y卸载n不操作c：\n' i
 if [ "$i"x = 'y'x ];then
    installSS
 elif [ "$i"x = 'n'x ];then
     uninstallSS
 fi
-#登出管理员账户
-exit
